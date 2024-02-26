@@ -3,7 +3,6 @@ layout: default
 title: Emotion Detection App
 ---
 
-# Emotion Detection App
 
 ## Introduction
 
