@@ -18,12 +18,5 @@
     </nav>
   </header>
   
-  <main>
-    {{ content }}
-  </main>
-  
-  <footer>
-    &copy; {{ site.author }} {{ site.year }}
-  </footer>
 </body>
 </html>
