@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Incredible Cake Kids</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="home.html" class="title">FER APP</a>
+				<nav>
+					<ul>
+						<li><a href="home.html">Home</a></li>
+						<li><a href="cake.html" class="active">Incredible Cake Kids</a></li>
+						<!-- <li><a href="elements.html">Elements</a></li> -->
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">Incredible Cake Kids</h1>
+							<span class="image fit"><img src="images/Modified-Incredible-Cake-Kids-task-schematic-Children-played-a-modified-version-of-the.png" alt="" /></span>
+							<p><a href="images/report.pdf">Research Paper</a></p>
+							<p>We are building an app that streamlines an existing research process, known as Incredible Cake Kids,
+								 which creates an interactive user experience for children, while also allowing us to collect valuable 
+								 data that can give insight into the child's risk of mental heath deterioration. Below is a step by step process on how it works.</p>
+							<h2>Steps for Cake Task</h2>
+							<p><strong>1. Show user 3 different cakes and wait for their selection</strong></p>
+
+							<p><strong>2. If they make a selection:</strong></p>
+							<ul>
+								<li>2 second delay</li>
+								<li>Show a response (positive or negative)</li>
+								<li>Use our model to classify their reaction to the response</li>
+								<li>Have a 2 second delay (trial rest)</li>
+								<li>Self-rating selection (emojis)</li>
+							</ul>
+
+							<p><strong>3. If they make a selection:</strong></p>
+							<ul>
+								<li>2 second delay</li>
+								<li>Show a response (positive or negative)</li>
+								<li>Use our model to classify their reaction to the response</li>
+								<li>Have a 2 second delay (trial rest)</li>
+								<li>Self-rating selection (emojis)</li>
+							</ul>
+
+							<p><strong>4. If they don't make a selection within 7 seconds, re-prompt the user.</strong></p>
+
+							<p><strong>5. Incorporate a 20 second delay between each task.</strong></p>
+
+							<p><strong>6. Repeat the above 8-10 times.</strong></p>
+							<h2>Machine Learning Process</h2>
+							<p>We ran many machine learning models before we finalized on one we should use for our app.</p>
+							<p>Our first baseline was heavily adapted from a user on Kaggle, named Drcapa. This model
+								was able to attend a 54% accuracy on the test set. The model uses a simple convolutional
+								neural network with four ReLu activation layers, MaxPool layers, and a SoftMax activation
+								layer.</p>
+							<p>Our second baseline model was using an op-for-op Pytorch re implementation of the Vision
+								Transformer architecture from Google and loading a pre-trained model in order to develop
+								a training pipeline for our data. The Vision Transformer involved resizing the training data
+								images, converting to Tensor, and normalizing the image. A Pytorch data loader was used
+								to pre process the training data and was trained on a vision transformer model with pretrained weights. The last layer was removed in order to preserve the embeddings which
+								were then converted to Tensor in order to train a logistic regression model on the embeddings in order to classify the seven different emotion classes.</p>
+								<p>Our third baseline model was created using the MobileNetV2 in TensorFlow. We used
+									transfer learning to adapt the image recognition model to this new task of detecting facial
+									expressions. We created some custom layers (including convolution pooling, MaxPooling,
+									and dropout layers) in hopes to improve the performance of the model and make it more
+									generalizabile on unseen data. This model did not perform as well as our first baseline
+									model, attaining a testing accuracy of 22%. As part of the process of developing this
+									model, we did try another model which was made up of the following layers: Conv2D,
+									MaxPooling2D, Flatten, Dropout, and Dense. This model attained 95% accuracy but only
+									30% validation accuracy.</p>
+							<p>Deepface is a Python framework for analyzing human faces. It's functionality includes facial recognition, expression analysis, and more. We are building our models using this pre-existing framework. The labels for the facial expressions vary slightly across our 2 datasets (FER and Dartmouth), so we first adapted for this. Then, we used Deepface's emotion recognition functionality on the Dartmouth dataset.</p>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<!-- <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li> -->
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
